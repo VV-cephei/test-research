@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Military Specification Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-btn.active { border-bottom: 2px solid #2563eb; color: #2563eb; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-200 py-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl font-bold text-gray-900">Military Specification Dashboard</h1>
+                <p class="mt-1 text-sm text-gray-500">Technical Analysis of MIL-C-83286B and MIL-PRF-22750G</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Tabs -->
+            <div class="border-b border-gray-200 mb-8">
+                <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                    <button onclick="showTab('mil-c-83286b')" id="btn-mil-c-83286b" class="tab-btn active whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                        MIL-C-83286B (Urethane)
+                    </button>
+                    <button onclick="showTab('mil-prf-22750g')" id="btn-mil-prf-22750g" class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                        MIL-PRF-22750G (Epoxy)
+                    </button>
+                </nav>
+            </div>
+
+            <!-- MIL-C-83286B Content -->
+            <div id="mil-c-83286b" class="tab-content active space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-lg font-semibold mb-2 text-blue-700">Document Overview</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Title:</strong> Coating, Urethane, Aliphatic Isocyanate</li>
+                            <li><strong>Date:</strong> 5 October 1973</li>
+                            <li><strong>Status:</strong> Military Specification (USAF)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-lg font-semibold mb-2 text-blue-700">Classification</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Type I:</strong> Pressurized air spray</li>
+                            <li><strong>Type II:</strong> Unheated airless spray</li>
+                            <li><strong>Mixing:</strong> 1:1 Volume Ratio</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-lg font-semibold mb-2 text-blue-700">Key Properties</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Pot Life:</strong> Min 6 hours</li>
+                            <li><strong>Dry Hard:</strong> Max 6 hours</li>
+                            <li><strong>VOC:</strong> Non-photochemically reactive</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="text-xl font-bold mb-4 border-b pb-2">Technical Requirements & Performance</h3>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Physical Properties</h4>
+                            <table class="min-w-full text-sm">
+                                <tbody class="divide-y divide-gray-100">
+                                    <tr><td class="py-2 font-medium">Viscosity (Mixed)</td><td class="py-2">17-23s (#2 Zahn)</td></tr>
+                                    <tr><td class="py-2 font-medium">Set-to-touch</td><td class="py-2">Max 2 hours</td></tr>
+                                    <tr><td class="py-2 font-medium">Nonvolatile Content</td><td class="py-2">Min 52% (Gloss) / 45% (Cam)</td></tr>
+                                    <tr><td class="py-2 font-medium">Free Diisocyanate</td><td class="py-2">< 1% in mixed coating</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Resistance & Durability</h4>
+                            <ul class="list-disc list-inside text-sm space-y-1 text-gray-600">
+                                <li>Salt Spray: 500 hours (no corrosion)</li>
+                                <li>Humidity: 30 days @ 120°F / 95% RH</li>
+                                <li>Heat: 4 hours @ 300°F</li>
+                                <li>Low Temp: Flexibility @ -65°F</li>
+                                <li>Fluid: Skydrol 500B, Lubricating Oil (250°F), Hydraulic Fluid</li>
+                                <li>Weathering: 500h Accelerated / 1yr Florida</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MIL-PRF-22750G Content -->
+            <div id="mil-prf-22750g" class="tab-content space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-lg font-semibold mb-2 text-green-700">Document Overview</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Title:</strong> Coating, Epoxy, High-Solids</li>
+                            <li><strong>Date:</strong> 30 April 2014</li>
+                            <li><strong>Status:</strong> Performance Specification (DoD)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-lg font-semibold mb-2 text-green-700">Classification</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Type II/III:</strong> VOHAP-free / DTM</li>
+                            <li><strong>Class H/W:</strong> Solvent / Water base</li>
+                            <li><strong>Grade A/B:</strong> Weather / Interior</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-lg font-semibold mb-2 text-green-700">Key Properties</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>VOC Content:</strong> Max 340 g/l</li>
+                            <li><strong>Dry Hard:</strong> Max 8 hours</li>
+                            <li><strong>Environmental:</strong> Lead/Chromate free</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="text-xl font-bold mb-4 border-b pb-2">Technical Requirements & Performance</h3>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Quantitative Requirements</h4>
+                            <table class="min-w-full text-sm">
+                                <tbody class="divide-y divide-gray-100">
+                                    <tr><td class="py-2 font-medium">Specular Gloss (60°)</td><td class="py-2">Min 90 (Gloss) / Max 5 (Lusterless)</td></tr>
+                                    <tr><td class="py-2 font-medium">Set-to-touch</td><td class="py-2">Max 4 hours</td></tr>
+                                    <tr><td class="py-2 font-medium">Viscosity</td><td class="py-2">Max 50 (#4 Ford Cup)</td></tr>
+                                    <tr><td class="py-2 font-medium">Solvent Resistance</td><td class="py-2">25 MEK double rubs</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Resistance & Durability</h4>
+                            <ul class="list-disc list-inside text-sm space-y-1 text-gray-600">
+                                <li>Salt Spray (Type III): 1,000 hours</li>
+                                <li>Water Resistance: 168 hours immersion</li>
+                                <li>Hydrocarbon Fluid: 168 hours in JP8</li>
+                                <li>Heat: Delta E <= 2.0 (250°F)</li>
+                                <li>Weathering: 500h (ASTM G155); Delta E < 3.0</li>
+                                <li>Strippability: Min 90% stripped</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-200 py-4">
+            <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 text-xs">
+                Generated based on technical analysis of MIL-C-83286B and MIL-PRF-22750G.
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all content
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('text-gray-500');
+            });
+            
+            // Show selected content
+            document.getElementById(tabId).classList.add('active');
+            // Activate selected button
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.add('active');
+            activeBtn.classList.remove('text-gray-500');
+        }
+    </script>
+</body>
+</html>
