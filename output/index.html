@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Military Coating Specifications Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .tab-active { border-bottom: 2px solid #2563eb; color: #2563eb; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <nav class="bg-slate-800 text-white p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold flex items-center">
+                <i class="fas fa-shield-halved mr-2"></i> Military Coating Specs Dashboard
+            </h1>
+            <div class="text-sm opacity-75">MIL-C-83286B vs MIL-PRF-22750G</div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto py-8 px-4">
+        <!-- Navigation Tabs -->
+        <div class="flex border-b border-gray-200 mb-8 overflow-x-auto">
+            <button onclick="showTab('comparison')" id="tab-comparison" class="px-6 py-3 font-semibold tab-active whitespace-nowrap">Comparison Matrix</button>
+            <button onclick="showTab('83286B')" id="tab-83286B" class="px-6 py-3 font-semibold text-gray-500 hover:text-blue-600 whitespace-nowrap">MIL-C-83286B (Urethane)</button>
+            <button onclick="showTab('22750G')" id="tab-22750G" class="px-6 py-3 font-semibold text-gray-500 hover:text-blue-600 whitespace-nowrap">MIL-PRF-22750G (Epoxy)</button>
+        </div>
+
+        <!-- Comparison Tab -->
+        <div id="content-comparison" class="tab-content">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6 bg-blue-50 border-b border-blue-100">
+                    <h2 class="text-2xl font-bold text-blue-900">Specification Comparison</h2>
+                    <p class="text-blue-700">Side-by-side analysis of key performance metrics.</p>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="p-4 border-b font-bold text-gray-700">Feature</th>
+                                <th class="p-4 border-b font-bold text-blue-800">MIL-C-83286B (Urethane)</th>
+                                <th class="p-4 border-b font-bold text-emerald-800">MIL-PRF-22750G (Epoxy)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="p-4 font-semibold bg-gray-50">Primary Use</td>
+                                <td class="p-4">Exterior Aerospace Equipment</td>
+                                <td class="p-4">Interior Aircraft / Ground Support</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold bg-gray-50">Chemistry</td>
+                                <td class="p-4">Aliphatic Isocyanate Urethane</td>
+                                <td class="p-4">High-Solids Epoxy</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold bg-gray-50">VOC Limit</td>
+                                <td class="p-4">Non-photochemically reactive solvents</td>
+                                <td class="p-4">Max 340 g/l (2.8 lbs/gal)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold bg-gray-50">Pot Life</td>
+                                <td class="p-4">Min 6 hours</td>
+                                <td class="p-4">Max 4 hours</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold bg-gray-50">Dry-Hard Time</td>
+                                <td class="p-4">Max 6 hours</td>
+                                <td class="p-4">Max 8 hours</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold bg-gray-50">Weather Resistance</td>
+                                <td class="p-4 text-green-600 font-medium"><i class="fas fa-check-circle mr-1"></i> High (Exterior Grade)</td>
+                                <td class="p-4 text-amber-600 font-medium"><i class="fas fa-exclamation-triangle mr-1"></i> Grade B: Interior Only</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold bg-gray-50">Fluid Resistance</td>
+                                <td class="p-4">Skydrol, Lubricating Oil, Hydraulic Fluid</td>
+                                <td class="p-4">Water, JP8, Lubricating Oil, Hydraulic Fluid</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold bg-gray-50">Standard Thickness</td>
+                                <td class="p-4">2.6 - 3.2 mils (Total System)</td>
+                                <td class="p-4">2.0 ± 0.2 mils (Topcoat)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- MIL-C-83286B Tab -->
+        <div id="content-83286B" class="tab-content hidden">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 space-y-6">
+                    <section class="bg-white p-6 rounded-xl shadow-md">
+                        <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b pb-2">Summary</h2>
+                        <p class="text-gray-700 leading-relaxed">
+                            MIL-C-83286B is a two-component, aliphatic isocyanate-based, oil-free urethane coating. 
+                            Engineered for exterior aerospace applications, it provides exceptional durability and 
+                            resistance to harsh environmental conditions and chemicals.
+                        </p>
+                    </section>
+                    
+                    <section class="bg-white p-6 rounded-xl shadow-md">
+                        <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b pb-2">Technical Specifications</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <span class="block text-xs font-bold uppercase text-blue-600">Mixing Ratio</span>
+                                <span class="text-lg font-semibold">1:1 by Volume</span>
+                            </div>
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <span class="block text-xs font-bold uppercase text-blue-600">Viscosity</span>
+                                <span class="text-lg font-semibold">17-23s (#2 Zahn Cup)</span>
+                            </div>
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <span class="block text-xs font-bold uppercase text-blue-600">Free Isocyanate</span>
+                                <span class="text-lg font-semibold">Max 1% (Mixed)</span>
+                            </div>
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <span class="block text-xs font-bold uppercase text-blue-600">Gloss (Gloss Colors)</span>
+                                <span class="text-lg font-semibold">Min 90 @ 60°</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-white p-6 rounded-xl shadow-md">
+                        <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b pb-2">Resistance Properties</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>Heat:</strong> 4 hours @ 300°F</li>
+                            <li><strong>Low Temp:</strong> Flexibility @ -65°F</li>
+                            <li><strong>Corrosion:</strong> 500 hours salt spray (5%)</li>
+                            <li><strong>Humidity:</strong> 30 days @ 120°F / 95% RH</li>
+                            <li><strong>Fluids:</strong> Skydrol 500B, Hydrocarbon fluid, Lubricating oil</li>
+                        </ul>
+                    </section>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-slate-800 text-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-4 flex items-center"><i class="fas fa-info-circle mr-2"></i> Classifications</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <span class="font-bold text-blue-400">Type I</span>
+                                <p class="text-sm opacity-90">Conventional pressurized air spray.</p>
+                            </div>
+                            <div>
+                                <span class="font-bold text-blue-400">Type II</span>
+                                <p class="text-sm opacity-90">Unheated, airless spray techniques.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-600">
+                        <h3 class="text-lg font-bold mb-2">Application Note</h3>
+                        <p class="text-sm text-gray-600">
+                            Intended for use over <strong>MIL-P-23377</strong> epoxy-polyamide primer. 
+                            Requires surface prep per <strong>MIL-C-81706</strong> on aluminum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MIL-PRF-22750G Tab -->
+        <div id="content-22750G" class="tab-content hidden">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 space-y-6">
+                    <section class="bg-white p-6 rounded-xl shadow-md">
+                        <h2 class="text-2xl font-bold mb-4 text-emerald-800 border-b pb-2">Summary</h2>
+                        <p class="text-gray-700 leading-relaxed">
+                            MIL-PRF-22750G is a high-solids, two-component epoxy coating. It is lead and chromate-free, 
+                            designed for interior use on aircraft and ground support equipment. It offers excellent 
+                            chemical resistance and is available in VOHAP-free formulations.
+                        </p>
+                    </section>
+                    
+                    <section class="bg-white p-6 rounded-xl shadow-md">
+                        <h2 class="text-2xl font-bold mb-4 text-emerald-800 border-b pb-2">Technical Specifications</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-3 bg-emerald-50 rounded-lg">
+                                <span class="block text-xs font-bold uppercase text-emerald-600">VOC Limit</span>
+                                <span class="text-lg font-semibold">340 g/l (2.8 lbs/gal)</span>
+                            </div>
+                            <div class="p-3 bg-emerald-50 rounded-lg">
+                                <span class="block text-xs font-bold uppercase text-emerald-600">Viscosity</span>
+                                <span class="text-lg font-semibold">Max 50s (#4 Ford Cup)</span>
+                            </div>
+                            <div class="p-3 bg-emerald-50 rounded-lg">
+                                <span class="block text-xs font-bold uppercase text-emerald-600">Induction Time</span>
+                                <span class="text-lg font-semibold">30 Minutes (if required)</span>
+                            </div>
+                            <div class="p-3 bg-emerald-50 rounded-lg">
+                                <span class="block text-xs font-bold uppercase text-emerald-600">Pot Life</span>
+                                <span class="text-lg font-semibold">Max 4 Hours</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-white p-6 rounded-xl shadow-md">
+                        <h2 class="text-2xl font-bold mb-4 text-emerald-800 border-b pb-2">Performance & Resistance</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>Solvent:</strong> 25 double rubs with MEK</li>
+                            <li><strong>Corrosion (Type III):</strong> 1,000 hours salt spray</li>
+                            <li><strong>Strippability:</strong> Min 90% removal</li>
+                            <li><strong>Adhesion:</strong> 4B or better (Dry) / 4A (Wet)</li>
+                            <li><strong>Fluids:</strong> Water (168h), JP8 (168h), Lubricating Oil (250°F)</li>
+                        </ul>
+                    </section>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-slate-800 text-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-4 flex items-center"><i class="fas fa-tags mr-2"></i> Classifications</h3>
+                        <div class="space-y-3 text-sm">
+                            <div><span class="font-bold text-emerald-400">Type II:</span> VOHAP-free</div>
+                            <div><span class="font-bold text-emerald-400">Type III:</span> Direct-to-metal (DTM)</div>
+                            <div><span class="font-bold text-emerald-400">Class H:</span> High solids, solvent base</div>
+                            <div><span class="font-bold text-emerald-400">Class W:</span> Water base</div>
+                            <div><span class="font-bold text-emerald-400">Grade A:</span> Weather resistant</div>
+                            <div><span class="font-bold text-emerald-400">Grade B:</span> Interior use only</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-emerald-600">
+                        <h3 class="text-lg font-bold mb-2">Safety Warning</h3>
+                        <p class="text-sm text-gray-600 italic">
+                            "Requires SDS compliance and specific respiratory protection warnings per Surgeon General requirement."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-200 text-gray-600 py-6 mt-12">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>Technical data derived from MIL-C-83286B and MIL-PRF-22750G (with Amendment 1) analysis.</p>
+            <p class="mt-2">&copy; 2026 Military Coating Specs Dashboard</p>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('[id^="tab-"]').forEach(tab => {
+                tab.classList.remove('tab-active');
+                tab.classList.add('text-gray-500');
+            });
+
+            // Show selected content
+            document.getElementById('content-' + tabId).classList.remove('hidden');
+            
+            // Add active class to selected tab
+            const activeTab = document.getElementById('tab-' + tabId);
+            activeTab.classList.add('tab-active');
+            activeTab.classList.remove('text-gray-500');
+        }
+    </script>
+</body>
+</html>
